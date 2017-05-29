@@ -42,6 +42,7 @@ $('a[href*="#"]:not([href="#"])').click(function() {
     }
 });
 });
+
 </script>
 <style>
 	body {
@@ -86,19 +87,7 @@ $('a[href*="#"]:not([href="#"])').click(function() {
 		overflow: hidden;
 		background-color: #EE1B24;
 	}
-	.navbar a {
-	  float: right;
-	  display: block;
-	  color: #ffffff;
-	  text-align: center;
-	  padding: 14px 16px;
-	  text-decoration: none;
-	  font-size: 100%;
-	}
-	.navbar a:hover {
-	  background-color: #ffe6e6;
-	  color: #EE1B24;
-	}
+	
 	.navbar a.home {
 		float: left;
 		display: block;
@@ -119,8 +108,7 @@ $('a[href*="#"]:not([href="#"])').click(function() {
 		margin: 3px 0;
 	}
 	button:hover {
-	  background-color: #ffe6e6;
-	  
+	  background-color: #ffe6e6;	  
 	}
 	.circle{
 		position:absolute;
@@ -177,6 +165,8 @@ $('a[href*="#"]:not([href="#"])').click(function() {
 		animation-duration: 1.5s;
 		animation-name: fadeAndScale;
 		animation-timing-function: cubic-bezier(0,0,.58,1);
+		margin-left : 5px;
+		margin-top : 45px;
 	}
 .contentdiv {
     position: relative;
@@ -199,6 +189,28 @@ $('a[href*="#"]:not([href="#"])').click(function() {
 		background-size: cover;
 	}
 	
+	.nav .anchorbutton {
+		border: #EE1B24;
+		text-align: center;
+		float: right;
+		display: block;
+		color: #ffffff;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+		font-size: 100%;
+		background-color: #EE1B24;
+	}
+	.nav .anchorbutton:hover {
+		color: #EE1B24;
+		background-color: #ffe6e6;
+	}
+	.nav .anchorbutton:focus {
+		color: #EE1B24;
+		background-color: #ffe6e6;
+		outline:none !important
+	}	
+	
 </style>
 </head>
 <body onload='window.location.href="#HomePage";'>
@@ -207,21 +219,21 @@ $('a[href*="#"]:not([href="#"])').click(function() {
 	 	<div class="navbar navbar-fixed-top">
 		<div class="container" id="sidebar" >
 			<div id="inside" ><a class="home" href="#HomePage"><b><span class="glyphicon glyphicon-home"></span>&nbsp;Home</b></a> </div>
-			<button  class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+			<button  class="navbar-toggle" data-toggle="collapse" data-target="#navHeaderCollapse">
 			<div class="menuspan"></div>
 			<div class="menuspan"></div>
 			<div class="menuspan"></div>
 			</button>
-			<div class="collapse navbar-collapse navHeaderCollapse">
+			<div class="collapse navbar-collapse" id="navHeaderCollapse" >
 				<u1 class="nav navbar-nav">
-				<li ><a href="#about"><b><span class="glyphicon glyphicon-user"></span>&nbsp;About</b></a></li>
-				<li><a href="#Products"><b><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Products</b></a></li>
-				<li><a href="#Feedback"><b><span class="glyphicon glyphicon-envelope"></span>&nbsp;Contact Us</b></a></li>
+				<li><button class="anchorbutton" data-toggle="collapse" data-target="#navHeaderCollapse" onclick="slowscroll('#about')"><b><span class="glyphicon glyphicon-user"></span>&nbsp;About</b></button></li>
+				<li><button class="anchorbutton" data-toggle="collapse" data-target="#navHeaderCollapse" onclick="slowscroll('#Products')"><b><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Products</b></button></li>
+				<li><button class="anchorbutton" data-toggle="collapse" data-target="#navHeaderCollapse" onclick="slowscroll('#Feedback')"><b><span class="glyphicon glyphicon-envelope"></span>&nbsp;Contact Us</b></button></li>
 				</u1>
 			</div>
 		</div>
 	</div>
-	<img class="logo img-responsive" src="Images/logo.jpg" >
+	<img class="logo img-responsive" src="Images/logo.jpg">
 	<div class="bottomfrontredweave">
 		<div class="bottomquote" onclick=slowscroll('#Feedback')>
 			<b><i><font color="black">
@@ -241,7 +253,7 @@ $('a[href*="#"]:not([href="#"])').click(function() {
   <section id="about">
   <br><br><br>
   <h1>About uPVC Windows</h1>
-  <p class="paragraph"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; uPVC is a eco-friendly material obtained by polymerization of vinly chloride. uPVC is widly used in doors and windows manufacturing since 4 decades worldwide. uPVC is a relativly new product to Indian subcontinent. The insulation property of uPVC makes the material idel for windows and doors in a tropical contry like India.</p>
+  <p class="paragraph"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; uPVC is a eco-friendly material obtained by polymerization of vinyl chloride. uPVC is widely used in doors and windows manufacturing since 4 decades worldwide. uPVC is a relatively new product to Indian subcontinent. The insulation property of uPVC makes the material idle for windows and doors in a tropical country like India.</p>
   <br><br><br>
   <h1>Lintel</h1>
   <p class="paragraph"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lintel Building Solutions is a provider of the modern uPVC windows and doors together with the complete solutions within the field of building materials, both for the new constructions and renovation activities.<br/>
@@ -260,16 +272,16 @@ $('a[href*="#"]:not([href="#"])').click(function() {
   <br><br><br>
   <H1>Features of uPVC </H1>
   <ul class="paragraph">
-  <li> uPVC Windows is U.V. Stabilised</li>
+  <li> uPVC Windows is U.V. Stabilized</li>
   <li> It's Aesthetic and durable</li>
   <li> All corners and mullions are fusion welded 100% dust proof due to double protection by EPDM Gaskets</li>
   <li> Steel reinforcement provides structural strength for wind-load resistance and for holding hardwares</li>
   <li> Multiple chamber system design enhances heat and sound insulation properties.</li>
   <li> Security with excellent hardware like multipoint lock, butt-hinges, handles etc.</li>
   <li> Eco-friendly and energy saving can withstand high wind pressure, fire retardant, resistance to weather, termite, chemical and high impact.</li>
-  <li> Maintanance free / No painting</li>
-  <li> Strength and durability helps to retain its origional shape and form for years</li>
-  <li> Availability in colours of choice, patterns and laminates.</li>
+  <li> Maintenance free / No painting</li>
+  <li> Strength and durability helps to retain its original shape and form for years</li>
+  <li> Availability in colors of choice, patterns and laminates.</li>
   </ul>
   </section>
   </div>
@@ -279,19 +291,19 @@ $('a[href*="#"]:not([href="#"])').click(function() {
 <table class="paragraph">
 <tr>
 <td><ul><li>Poor Insulator</li></ul></td>
-<td><ul><li>Excelent Insulator</li></ul></td>
+<td><ul><li>Excellent Insulator</li></ul></td>
 </tr>
 <tr>
 <td><ul><li>Allows condensation to form pits, corrodes, dents and scratches</li></ul></td>
-<td><ul><li> Reduces air infilteration and will not shrink or wrap</li></ul></td>
+<td><ul><li> Reduces air infiltration and will not shrink or wrap</li></ul></td>
 </tr>
 <tr>
-<td><ul><li>Most frames and sash are usualliy faster with screws that may loosen</li></ul></td>
-<td><ul><li> Durable, no pitting, peeling, rotting, corroding.</li></ul></td>
+<td><ul><li>Most frames and sash are usually faster with screws that may loosen</li></ul></td>
+<td><ul><li> Durable, no pitting, peeling, rotting and corroding.</li></ul></td>
 </tr>
 <tr>
 <td><ul><li>Painted windows may chip and scratch</li></ul></td>
-<td><ul><li>Easy to clean, low maintanance, ease of operation, custom size opening</li></ul></td>
+<td><ul><li>Easy to clean, low maintenance, ease of operation, custom size opening</li></ul></td>
 </tr>
 </table>
   </div>
@@ -303,15 +315,15 @@ $('a[href*="#"]:not([href="#"])').click(function() {
       <div class="col-lg-5">
 		<h1>Office :</h1>
 		<p class="paragraph">
-		<span class="glyphicon glyphicon-map-marker"></span>Plot No 302, MIG 1, Akshay Park, Gokul Road, Hubli - 580 030<br>
-		<span class="glyphicon glyphicon-map-marker"></span>Hulagol Chawl, Hospet Road, Sirsi - 581 401<br>
+		<span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;Plot No 302, MIG 1, Akshay Park, Gokul Road, Hubli - 580 030<br>
+		<span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;Hulagol Chawl, Hospet Road, Sirsi - 581 401<br>
 		</p>
 		<h1>Factory :</h1>
 		<p class="paragraph">
-		<span class="glyphicon glyphicon-map-marker"></span>Industrial Estate, Banavasi Road, Sirsi - 581 401<br>
-		<span class="glyphicon glyphicon-phone"></span>+91 91647 01702<br>
-		<span class="glyphicon glyphicon-phone"></span>+91 94807 32263<br>
-		<span class="glyphicon glyphicon-envelope"></span>lintelwindoors@gmail.com<br>
+		<span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;Industrial Estate, Banavasi Road, Sirsi - 581 401<br>
+		<span class="glyphicon glyphicon-phone"></span>&nbsp;&nbsp;+91 91647 01702<br>
+		<span class="glyphicon glyphicon-phone"></span>&nbsp;&nbsp;+91 94807 32263<br>
+		<span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;lintelwindoors@gmail.com<br>
 		</p>
 	  </div>
     </div>
