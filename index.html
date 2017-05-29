@@ -42,6 +42,7 @@ $('a[href*="#"]:not([href="#"])').click(function() {
     }
 });
 });
+
 </script>
 <style>
 	body {
@@ -86,19 +87,7 @@ $('a[href*="#"]:not([href="#"])').click(function() {
 		overflow: hidden;
 		background-color: #EE1B24;
 	}
-	.navbar a {
-	  float: right;
-	  display: block;
-	  color: #ffffff;
-	  text-align: center;
-	  padding: 14px 16px;
-	  text-decoration: none;
-	  font-size: 100%;
-	}
-	.navbar a:hover {
-	  background-color: #ffe6e6;
-	  color: #EE1B24;
-	}
+	
 	.navbar a.home {
 		float: left;
 		display: block;
@@ -119,8 +108,7 @@ $('a[href*="#"]:not([href="#"])').click(function() {
 		margin: 3px 0;
 	}
 	button:hover {
-	  background-color: #ffe6e6;
-	  
+	  background-color: #ffe6e6;	  
 	}
 	.circle{
 		position:absolute;
@@ -177,6 +165,8 @@ $('a[href*="#"]:not([href="#"])').click(function() {
 		animation-duration: 1.5s;
 		animation-name: fadeAndScale;
 		animation-timing-function: cubic-bezier(0,0,.58,1);
+		margin-left : 5px;
+		margin-top : 45px;
 	}
 .contentdiv {
     position: relative;
@@ -199,6 +189,28 @@ $('a[href*="#"]:not([href="#"])').click(function() {
 		background-size: cover;
 	}
 	
+	.nav .anchorbutton {
+		border: #EE1B24;
+		text-align: center;
+		float: right;
+		display: block;
+		color: #ffffff;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+		font-size: 100%;
+		background-color: #EE1B24;
+	}
+	.nav .anchorbutton:hover {
+		color: #EE1B24;
+		background-color: #ffe6e6;
+	}
+	.nav .anchorbutton:focus {
+		color: #EE1B24;
+		background-color: #ffe6e6;
+		outline:none !important
+	}	
+	
 </style>
 </head>
 <body onload='window.location.href="#HomePage";'>
@@ -207,21 +219,21 @@ $('a[href*="#"]:not([href="#"])').click(function() {
 	 	<div class="navbar navbar-fixed-top">
 		<div class="container" id="sidebar" >
 			<div id="inside" ><a class="home" href="#HomePage"><b><span class="glyphicon glyphicon-home"></span>&nbsp;Home</b></a> </div>
-			<button  class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+			<button  class="navbar-toggle" data-toggle="collapse" data-target="#navHeaderCollapse">
 			<div class="menuspan"></div>
 			<div class="menuspan"></div>
 			<div class="menuspan"></div>
 			</button>
-			<div class="collapse navbar-collapse navHeaderCollapse">
+			<div class="collapse navbar-collapse" id="navHeaderCollapse" >
 				<u1 class="nav navbar-nav">
-				<li ><a href="#about"><b><span class="glyphicon glyphicon-user"></span>&nbsp;About</b></a></li>
-				<li><a href="#Products"><b><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Products</b></a></li>
-				<li><a href="#Feedback"><b><span class="glyphicon glyphicon-envelope"></span>&nbsp;Contact Us</b></a></li>
+				<li><button class="anchorbutton" data-toggle="collapse" data-target="#navHeaderCollapse" onclick="slowscroll('#about')"><b><span class="glyphicon glyphicon-user"></span>&nbsp;About</b></button></li>
+				<li><button class="anchorbutton" data-toggle="collapse" data-target="#navHeaderCollapse" onclick="slowscroll('#Products')"><b><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Products</b></button></li>
+				<li><button class="anchorbutton" data-toggle="collapse" data-target="#navHeaderCollapse" onclick="slowscroll('#Feedback')"><b><span class="glyphicon glyphicon-envelope"></span>&nbsp;Contact Us</b></button></li>
 				</u1>
 			</div>
 		</div>
 	</div>
-	<img class="logo img-responsive" src="Images/logo.jpg" >
+	<img class="logo img-responsive" src="Images/logo.jpg">
 	<div class="bottomfrontredweave">
 		<div class="bottomquote" onclick=slowscroll('#Feedback')>
 			<b><i><font color="black">
