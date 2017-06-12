@@ -17,13 +17,16 @@
              	   	document.getElementById('file').style.visibility = 'visible';
                 	document.getElementById("myForm").reset();
         	}
+		function hidesubmit() {
+			document.getElementById('mysubmit').style.visibility = 'hidden';
+		}
 	</script>
 	<style>
 		.dropzone1{
         border:2px dotted #3498db;
         padding: 20px;
         width:100%;
-        height:300px;
+        height:50%;
         color:#bdc3e7;
         font-size:200%;
         text-align: center;
@@ -55,9 +58,10 @@
                 <br>
                 <br>
                 <br>
-                        <input type="file" name="files[]" id="file" class="box__file" data-multiple-caption="{count} files selected" multiple style="width:90%"/>
-                        <button type="submit" class="btn btn-success mybtn">Upload</button>
-                        <input type="reset" class="btn btn-failure mybtn" onclick="reset_fun();"/>
+                        <input type="file" name="files[]" id="file" class="box__file" data-multiple-caption="{count} files selected" multiple style="width:90%"/><br>
+			<table><tr><td>UserName :</td><td><input type="text" name="username" style="width:90%" /></td><td>&nbsp;&nbsp;<input type="reset" class="btn btn-failure mybtn" onclick="reset_fun();"/></td></tr>
+                        <tr><td>Password :</td><td><input type="password" name="password" style="width:90%"/></td><td>&nbsp;&nbsp;<button type="submit" id="mysubmit" class="btn btn-success mybtn" onclick="hidesubmit();" >Upload</button></td></tr>
+                        </table>
                 </div>
         </form>
 </div>
@@ -153,22 +157,22 @@
                                                 if( ajax.status >= 200 && ajax.status < 400 )
                                                 {
                                                         var data = JSON.parse( ajax.responseText );
-                                                        form.classList.add( data.success == true ? 'is-success' : 'is-error' );
-                                                        if( !data.success ){ 
-								errorMsg.textContent = data.error;
+                                                        if( !data[1].success ){ 
+								alert( data[1].message );
 							}
 							else {
-							alert( 'Upload Success');
-							window.location.assign("uploadimage.html");
+								alert( data[1].message );
+								window.location.assign("uploadimage.html");
 							}
                                                 }
                                                 else alert( 'Error. Please, contact the webmaster!' );
+						document.getElementById('mysubmit').style.visibility = 'visible';
                                         };
 
                                         ajax.onerror = function()
                                         {
-                                                form.classList.remove( 'is-uploading' );
                                                 alert( 'Error. Please, try again!' );
+						document.getElementById('mysubmit').style.visibility = 'visible';
                                         };
 
                                         ajax.send( ajaxData );
