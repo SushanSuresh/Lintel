@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>Lintel</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+	<script src="bootstrap/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	
+	
+<style>
+	body {
+		margin:0;	
+	}
+	
+	div.fristpage {
+		//background-image: url('Images/background1.jpg');
+		background-repeat: no-repeat;
+		background-position: center center;
+		border: 1px solid;
+		width: 100%;
+		height: 100%;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+	.navbar {
+		overflow: hidden;
+		background-color: #EE1B24;
+	}
+	
+	.navbar a.home {
+		float: left;
+		display: block;
+		color: #ffffff;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+		font-size: 17px;
+	}
+	.navbar a.nonhome {
+		float: left;
+		display: block;
+		color: #ffffff;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+		font-size: 17px;
+		cursor: default;
+	}
+	.navbar a.home:hover {
+	  background-color: #ffe6e6;
+	  color: #EE1B24;
+	}
+</style>
+</head>
+<body >
+	  
+ 
+	 	<div class="navbar navbar-fixed-top">
+			<div class="container" id="sidebar" >
+				<div id="inside" ><a class="home" href="index.html"><b><span class="glyphicon glyphicon-home"></span>&nbsp;Home</b></a> </div>
+				<div id="inside" ><a class="nonhome" href="#"><b>&nbsp;&nbsp;&nbsp;Lintel Buliding Solutions</b></a> </div>
+			</div>
+		</div>
+		
+		<div class="container-fluid">
+			<div class="row">
+					<div class="col-lg-4" style="height:100%; padding:0px"  id="uploadpart"><iframe src="uploadimage.html" width="100%" height="100%"></iframe></div>
+					<div class="col-lg-8" style="height:100%; padding:0px"  id="displayprt"><iframe src="index.html" width="100%" height="100%"></iframe></div>
+			</div>
+		</div> 
+</body>
+</html>
+
