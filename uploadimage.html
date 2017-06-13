@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 
 <html lang="en" class="no-js">
 
@@ -6,14 +6,20 @@
         <meta charset="utf-8">
         <title>Lintel</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-        <script src="bootstrap/jquery.min.js"></script>
+       <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+	<script src="bootstrap/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	
 
         <!-- remove this if you use Modernizr -->
         <script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
 	<script type="text/javascript">
         	function reset_fun() {
-                	document.getElementById('mylabel').innerHTML = "Drag files here";
+                	document.getElementById('mylabel').innerHTML = "<strong>Drag files here<strong>";
              	   	document.getElementById('file').style.visibility = 'visible';
                 	document.getElementById("myForm").reset();
         	}
@@ -22,50 +28,67 @@
 		}
 	</script>
 	<style>
-		.dropzone1{
-        border:2px dotted #3498db;
-        padding: 20px;
-        width:100%;
-        height:50%;
-        color:#bdc3e7;
-        font-size:200%;
-        text-align: center;
-}
+		.dropzone1 {
+			border:2px dotted #3498db;
+			padding: 20px;
+			width:100%;
+			height:40%;
+			color:#bdc3e7;
+			
+			text-align: center;
+		}
 
 
 
-.container-main{
-        margin-left:20%;
-        margin-right:20%;
-}
+		.container-main {
+			margin-left:5%;
+			margin-right:5%;
+			margin-top : 5%;		
+		}
 
-.mybtn{
-        position:relative;
-        top:50;
-}
+		.mybtn {
+			width: 70px;
+		}
+
+		body {
+			margin:0;	
+		}	
 
 	</style>
 
 </head>
-<body>
-
-<div class="container-main" >
-
-<div class="well well-lg">
-        <form id="myForm" method="post" action="drop.php" enctype="multipart/form-data" novalidate class="box">
-                <div class="dropzone1">
-                <label for="file" id="mylabel">Drag files here</label>
-                <br>
-                <br>
-                <br>
-                        <input type="file" name="files[]" id="file" class="box__file" data-multiple-caption="{count} files selected" multiple style="width:90%"/><br>
-			<table><tr><td>UserName :</td><td><input type="text" name="username" style="width:90%" /></td><td>&nbsp;&nbsp;<input type="reset" class="btn btn-failure mybtn" onclick="reset_fun();"/></td></tr>
-                        <tr><td>Password :</td><td><input type="password" name="password" style="width:90%"/></td><td>&nbsp;&nbsp;<button type="submit" id="mysubmit" class="btn btn-success mybtn" onclick="hidesubmit();" >Upload</button></td></tr>
-                        </table>
-                </div>
-        </form>
-</div>
-</div>
+<body><br><br><br><br>
+	<div class="well well-lg container-fluid container-main" >
+				<form id="myForm" method="post" action="drop.php" enctype="multipart/form-data" novalidate class="box">
+						<div class="dropzone1">
+							<label for="file" id="mylabel"><strong>Drag files here<strong></label>				
+						</div>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-lg-8"><br><input type="file" name="files[]" id="file" class="box__file" data-multiple-caption="{count} files selected" multiple style="width:70%" /></div>
+								<div class="col-lg-*"></div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-lg-2">UserName :</div>
+								<div class="col-lg-2"><input type="text" name="username" style="width:70%"/></div>
+								<div class="col-lg-*"></div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-lg-2">Password :</div>
+								<div class="col-lg-2"><input type="password" name="password" style="width:70%"/></div>
+								<div class="col-lg-*"></div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-lg-10"></div>
+								<div class="col-lg-2"><button type="submit" id="mysubmit" class="btn btn-success mybtn" onclick="hidesubmit();" >Upload</button>&nbsp;&nbsp;&nbsp;<input type="reset" class="btn btn-failure mybtn" onclick="reset_fun();"/></div>
+							</div>
+						</div>
+				</form>
+				<br>
+	</div>
 <script>
 
         'use strict';
@@ -201,4 +224,3 @@
 </body>
 
 </html>
-

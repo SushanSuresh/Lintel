@@ -36,6 +36,9 @@
 											$errorMessage = $errorMessage . " Error getting image " . $img_name;
 									}
                                 }
+				else {
+					 $errorMessage = $errorMessage . " Not supported format (JPEG/JPG/PNG) " . $img_name;
+				}
                 }
         pg_close($conn);
 		if ( $errorFalg == "0" ) {
