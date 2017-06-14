@@ -37,6 +37,7 @@
 									}
                                 }
 				else {
+					 $errorFalg ="1";
 					 $errorMessage = $errorMessage . " Not supported format (JPEG/JPG/PNG) " . $img_name;
 				}
                 }
