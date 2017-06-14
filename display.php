@@ -4,7 +4,7 @@
 	$host           =       "host = 127.0.0.1";
         $port           =       "port = 5432";
         $dbname         =       "dbname = testdb";
-        $credentials    =       "user = **  password=****";
+        $credentials    =       "user = 111111 password=11111111";
 
         $conn = pg_connect( " $host $port $dbname $credentials" )
            or die ("Could not connect to server\n");
@@ -33,7 +33,11 @@ if($result)
 					background: black;
 				}
 				img.preview {
-					display:block;
+					 position:absolute;
+					 top:0;
+					 left:0;
+					 right:0;
+					 bottom:0;
 					margin:auto;
 				}
 			</style>
@@ -51,7 +55,7 @@ if($result)
 		</head>
 	<body>
 		<div class=\"container-fluid mydiv\" id=\"previewdiv\" onclick=\"hidefun();\">
-			<img id=\"imageviewer\" src=\"\" style=\"max-width:100%\" onclick=\"hidefun();\" class=\"preview\"/>
+			<img id=\"imageviewer\" src=\"\" style=\"max-width:100%\" onclick=\"hidefun();\" class=\"preview\" />
 		</div>";	
 	while ($row = pg_fetch_row($result)) {
 		$tempDir = $temp . $row[0];
