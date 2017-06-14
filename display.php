@@ -4,7 +4,7 @@
 	$host           =       "host = 127.0.0.1";
         $port           =       "port = 5432";
         $dbname         =       "dbname = testdb";
-        $credentials    =       "user = *** password=******";
+        $credentials    =       "user = **  password=****";
 
         $conn = pg_connect( " $host $port $dbname $credentials" )
            or die ("Could not connect to server\n");
@@ -32,6 +32,10 @@ if($result)
 					z-index: 10;
 					background: black;
 				}
+				img.preview {
+					display:block;
+					margin:auto;
+				}
 			</style>
 			<script type=\"text/javascript\">
 				function hidefun() {
@@ -47,7 +51,7 @@ if($result)
 		</head>
 	<body>
 		<div class=\"container-fluid mydiv\" id=\"previewdiv\" onclick=\"hidefun();\">
-			<img id=\"imageviewer\" src=\"\" style=\"max-width:100%\" onclick=\"hidefun();\"/>
+			<img id=\"imageviewer\" src=\"\" style=\"max-width:100%\" onclick=\"hidefun();\" class=\"preview\"/>
 		</div>";	
 	while ($row = pg_fetch_row($result)) {
 		$tempDir = $temp . $row[0];
