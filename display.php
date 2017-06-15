@@ -4,12 +4,12 @@
 	$host           =       "host = 127.0.0.1";
         $port           =       "port = 5432";
         $dbname         =       "dbname = testdb";
-        $credentials    =       "user = 111111 password=11111111";
+        $credentials    =       "user = ****** password=********";
 
         $conn = pg_connect( " $host $port $dbname $credentials" )
            or die ("Could not connect to server\n");
 
-$temp = '/tmp/';
+$temp = '/tmp/images/';
 $query = "select name from image";
 $result = pg_query($query);
 if($result)
@@ -44,10 +44,10 @@ if($result)
 			<script type=\"text/javascript\">
 				function hidefun() {
 					document.getElementById(\"previewdiv\").style.visibility = 'hidden';
+					document.getElementById(\"imageviewer\").src = \"\";
 				}
 				function myfun(id) {
 					document.getElementById(\"imageviewer\").src = \"show.php?imgFile=${temp}/\" + id;
-					document.getElementById(\"previewdiv\").style.visibility = 'hidden';
                                         document.getElementById(\"previewdiv\").style.visibility = 'visible';
 				}
 			</script>
