@@ -1,8 +1,4 @@
 <?php
-        $file_count = count($_FILES['files']['name']);
-        $errorFalg = "0" ;
-        $errorMessage = "";
-        $uploaddir      =       "/tmp/";
         $host           =       "host = 127.0.0.1";
         $port           =       "port = 5432";
         $dbname         =       "dbname = testdb";
