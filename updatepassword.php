@@ -22,11 +22,24 @@
 	$query = "alter user $username password '$newpassword'";
 	$result = pg_query($query);
         if($result){
-        	echo "Password updated..!";
-		echo "&nbsp;&nbsp<a href=\"password.html\">Back&nbsp;&nbsp<span class=\"glyphicon glyphicon-check\"></span></a>";
-	}
+			if (!$content = file_get_contents (".credentials.txt")){
+         		       echo "1.Unable to update credentials for readfiles even though database passsword is updated, Please contact admin to correct it";
+		        }
+		        else {
+                		$content = str_replace($password,$newpassword,$content);
+			        if (!file_put_contents (".credentials.txt",$content)){
+                        		echo "2.Unable to update credentials for readfiles even though database passsword is updated, Please contact admin to correct it";
+		                }
+                		else {
+					echo "Password updated..! ${output}";
+				}
+				echo "&nbsp;&nbsp<a href=\"password.html\">Back&nbsp;&nbsp<span class=\"glyphicon glyphicon-check\"></span></a>";
+			 }
+	}	
         else{
 		echo "Password update failed...!";
 		echo "&nbsp;&nbsp<a href=\"password.html\">Retry&nbsp;&nbsp<span class=\"glyphicon glyphicon-repeat\"></span></a>";
 	}
 	echo "	</div></body></html>";
+	pg_close($conn);
+?>

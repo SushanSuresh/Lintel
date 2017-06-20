@@ -36,7 +36,7 @@
 											$errorMessage = $errorMessage . " Error getting image " . $img_name;
 									}
                                 }
-				else {
+				else if( $img_name != NULL) {
 					 $errorFalg ="1";
 					 $errorMessage = $errorMessage . " Not supported format (JPEG/JPG/PNG) " . $img_name;
 				}
