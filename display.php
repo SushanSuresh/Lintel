@@ -57,10 +57,12 @@ if($result)
 			</script>
 	
 		</head>
-	<body><br><br><br>
+	<body>
 		<div class=\"container-fluid mydiv\" id=\"previewdiv\" onclick=\"hidefun();\">
 			<img id=\"imageviewer\" src=\"\" style=\"max-width:100%\" onclick=\"hidefun();\" class=\"preview\" />
 		</div>";	
+	$rowcount = pg_num_rows($result);
+                if ($rowcount > 0 ) {
 	while ($row = pg_fetch_row($result)) {
 		$tempDir = $temp . $row[0];
 		$tempDircpy = $tempDir;
@@ -70,6 +72,11 @@ if($result)
 			echo "<IMG SRC=show.php?imgFile=${tempDircpy} id=\"${row[0]}\" title=${row[0]} onclick=\"myfun(this.id)\" style=\"max-width:30%\">";
 		}
 	}
+	}
+else {
+	$tempDircpy = $temp . "noimage.png";
+                echo "<br><br><IMG SRC=show.php?imgFile=${tempDircpy} class=\"img-responsive\" style=\"max-width:100%;margin-left:40%\" align=\"middle\"><br><br>";
+}
 
 		echo "<script type=\"text/javascript\">
 			document.getElementById(\"previewdiv\").style.visibility = 'hidden';

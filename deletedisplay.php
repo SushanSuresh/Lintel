@@ -16,11 +16,6 @@ $temp = '/tmp/images/';
 $query = "select name from image";
 $result = pg_query($query);
 
- if($_POST["temptext"]){
-                        $temp=$_POST["temptext"];
-                        $count=count($temp);
-                        echo $count;
-                }
 if($result)
 {
 	
@@ -122,6 +117,8 @@ if($result)
                 </div><br><br><br>
 
 		<form action=\"delete.php\" method=\"POST\">";
+		$rowcount = pg_num_rows($result);		
+		if ($rowcount > 0 ) {
 	while ($row = pg_fetch_row($result)) {
 		$tempDir = $temp . $row[0];
 		$tempDircpy = $tempDir;
@@ -135,7 +132,11 @@ if($result)
 			echo "</label>";
 		}
 	}
-
+	}
+	else {
+		$tempDircpy = $temp . "noimage.png";
+		echo "<br><br><IMG SRC=show.php?imgFile=${tempDircpy} class=\"img-responsive\" style=\"max-width:100%;margin-left:10%\"><br><br>";
+	}
 		echo "<br><br><div class=\"container-fluid\">
                                                         <div class=\"row\">
                                                                 <div class=\"col-lg-2\">UserName :</div>
@@ -147,10 +148,11 @@ if($result)
                                                                 <div class=\"col-lg-2\">Password :</div>
                                                                 <div class=\"col-lg-2\"><input type=\"password\" name=\"password\" style=\"width:70%\" required /></div>
                                                                 <div class=\"col-lg-*\"></div>
-                                                        </div>
+                                                        </div><br>
 							<div class=\"row\">
-								<div class=\"col-lg-4\"><button type=\"submit\" id=\"temptext\" >Submit</button></div>
-								<div class=\"col-lg-*\"></div>
+								<div class=\"col-lg-2\"></div>
+								<div class=\"col-lg-3\"><button type=\"submit\" class=\"btn btn-success mybtn\" id=\"temptext\" >Submit</button></div>
+								<div class=\"col-lg-7\"></div>
 							</div>
 			</div>
 			</form>
