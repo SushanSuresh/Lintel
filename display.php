@@ -57,7 +57,7 @@ if($result)
 			</script>
 	
 		</head>
-	<body>
+	<body><br><br><br>
 		<div class=\"container-fluid mydiv\" id=\"previewdiv\" onclick=\"hidefun();\">
 			<img id=\"imageviewer\" src=\"\" style=\"max-width:100%\" onclick=\"hidefun();\" class=\"preview\" />
 		</div>";	
@@ -67,7 +67,7 @@ if($result)
 		$query2 = "select lo_export(image, '$tempDir') from image where name = '${row[0]}'";
 		$result2 = pg_query($query2);
 		if ($result2) {
-			echo "<IMG SRC=show.php?imgFile=${tempDircpy} id=\"${row[0]}\" title=${row[0]} onclick=\"myfun(this.id)\" style=\"max-width:50%\">";
+			echo "<IMG SRC=show.php?imgFile=${tempDircpy} id=\"${row[0]}\" title=${row[0]} onclick=\"myfun(this.id)\" style=\"max-width:30%\">";
 		}
 	}
 
