@@ -75,7 +75,7 @@ if($result)
 	}
 else {
 	$tempDircpy = $temp . "noimage.png";
-                echo "<br><br><IMG SRC=show.php?imgFile=${tempDircpy} class=\"img-responsive\" style=\"max-width:100%;margin-left:40%\" align=\"middle\"><br><br>";
+                echo "<br><br><IMG SRC=show.php?imgFile=${tempDircpy} class=\"img-responsive\" style=\"max-width:100%;margin-left:40%\" align=\"middle\" alt=\"No image found\" ><br><br>";
 }
 
 		echo "<script type=\"text/javascript\">
