@@ -3,7 +3,7 @@
 
 	$host           =       "host = 127.0.0.1";
         $port           =       "port = 5432";
-        $dbname         =       "dbname = linteldb";
+        $dbname         =       "dbname = testdb";
 	$loginData = file('../.credentials.txt');
         foreach ($loginData as $line) {
                 list($username, $password) = explode(',',$line);
