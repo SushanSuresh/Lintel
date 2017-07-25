@@ -3,7 +3,7 @@
 
 	$host           =       "host = 127.0.0.1";
         $port           =       "port = 5432";
-        $dbname         =       "dbname = testdb";
+        $dbname         =       "dbname = linteldb";
 	$loginData = file('../.credentials.txt');
         foreach ($loginData as $line) {
                 list($username, $password) = explode(',',$line);
@@ -44,6 +44,48 @@ if($result)
 					 bottom:0;
 					margin:auto;
 				}
+				#mygalary {
+					line-height: 0;
+					-webkit-column-count: 5;
+					-webkit-column-gap : 0px;
+					-moz-column-count: 5;
+					-moz-column-gap: 0px;
+					column-count: 5;
+					column-gap: 0px;
+				}
+				#mygalary IMG {
+					width: 100% !important;
+					height: auto !important;
+					border : double 2px;
+				}
+				@media (max-width: 1200px) {
+  #mygalary {
+  -moz-column-count:    4;
+  -webkit-column-count: 4;
+  column-count:         4;
+  }
+}
+@media (max-width: 1000px) {
+  #mygalary {
+  -moz-column-count:    3;
+  -webkit-column-count: 3;
+  column-count:         3;
+  }
+}
+@media (max-width: 800px) {
+  #mygalary {
+  -moz-column-count:    2;
+  -webkit-column-count: 2;
+  column-count:         2;
+  }
+}
+@media (max-width: 400px) {
+  #mygalary {
+  -moz-column-count:    1;
+  -webkit-column-count: 1;
+  column-count:         1;
+  }
+}
 			</style>
 			<script type=\"text/javascript\">
 				function hidefun() {
@@ -58,27 +100,31 @@ if($result)
 	
 		</head>
 	<body>
-		<div class=\"container-fluid mydiv\" id=\"previewdiv\" onclick=\"hidefun();\">
+		<div class=\"container mydiv\" id=\"previewdiv\" onclick=\"hidefun();\">
 			<img id=\"imageviewer\" src=\"\" style=\"max-width:100%\" onclick=\"hidefun();\" class=\"preview\" />
-		</div>";	
+		</div>
+		<div class=\"container\">"
+		;	
 	$rowcount = pg_num_rows($result);
                 if ($rowcount > 0 ) {
+		echo "<section id=\"mygalary\">";
 	while ($row = pg_fetch_row($result)) {
 		$tempDir = $temp . $row[0];
 		$tempDircpy = $tempDir;
 		$query2 = "select lo_export(image, '$tempDir') from image where name = '${row[0]}'";
 		$result2 = pg_query($query2);
 		if ($result2) {
-			echo "<IMG SRC=show.php?imgFile=${tempDircpy} id=\"${row[0]}\" title=${row[0]} onclick=\"myfun(this.id)\" style=\"max-width:30%\">";
+			echo "<IMG SRC=show.php?imgFile=${tempDircpy} id=\"${row[0]}\" title=${row[0]} onclick=\"myfun(this.id)\">";
 		}
 	}
+	echo "</section>";
 	}
 else {
 	$tempDircpy = $temp . "noimage.png";
-                echo "<br><br><IMG SRC=show.php?imgFile=${tempDircpy} class=\"img-responsive\" style=\"max-width:100%;margin-left:40%\" align=\"middle\" alt=\"No image found\" ><br><br>";
+                echo "<br><br><IMG SRC=show.php?imgFile=${tempDircpy} class=\"img-responsive\" style=\"max-width:100%;margin:0 auto\" align=\"middle\" alt=\"No image found\" ><br><br>";
 }
 
-		echo "<script type=\"text/javascript\">
+		echo "</div><script type=\"text/javascript\">
 			document.getElementById(\"previewdiv\").style.visibility = 'hidden';
 		</script>
 	</body>
