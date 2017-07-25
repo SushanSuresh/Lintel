@@ -101,7 +101,7 @@ if($result)
 		</head>
 	<body>
 		<div class=\"container mydiv\" id=\"previewdiv\" onclick=\"hidefun();\">
-			<img id=\"imageviewer\" src=\"\" style=\"max-width:100%\" onclick=\"hidefun();\" class=\"preview\" />
+			<img id=\"imageviewer\" src=\"\" style=\"max-width:100%\" onclick=\"hidefun();\" title=\"By: LintelBuligingSolutions\" class=\"preview\" />
 		</div>
 		<div class=\"container\">"
 		;	
@@ -114,7 +114,7 @@ if($result)
 		$query2 = "select lo_export(image, '$tempDir') from image where name = '${row[0]}'";
 		$result2 = pg_query($query2);
 		if ($result2) {
-			echo "<IMG SRC=show.php?imgFile=${tempDircpy} id=\"${row[0]}\" title=${row[0]} onclick=\"myfun(this.id)\">";
+			echo "<IMG SRC=show.php?imgFile=${tempDircpy} id=\"${row[0]}\" title=\"LintelBuligingSolutions\" onclick=\"myfun(this.id)\">";
 		}
 	}
 	echo "</section>";
