@@ -90,7 +90,7 @@ if($result)
 			<script type=\"text/javascript\">
 				function hidefun() {
 					document.getElementById(\"previewdiv\").style.visibility = 'hidden';
-					document.getElementById(\"imageviewer\").src = \"\";
+					document.getElementById(\"imageviewer\").src = \"Images/loading.gif\";
 				}
 				function myfun(id) {
 					document.getElementById(\"imageviewer\").src = \"show.php?imgFile=${temp}/\" + id;
@@ -126,6 +126,7 @@ else {
 
 		echo "</div><script type=\"text/javascript\">
 			document.getElementById(\"previewdiv\").style.visibility = 'hidden';
+			document.getElementById(\"imageviewer\").src = \"Images/loading.gif\";
 		</script>
 	</body>
 	</html>";
