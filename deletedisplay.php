@@ -70,8 +70,7 @@ if($result)
 				.fancy-checkbox-label {
  				 	font-weight: normal;
  				 	cursor: pointer;
-					width : 50%;
-					margin: 23px -300px auto auto;
+					width : 100%;
 				}
 				.fancy-checkbox:before {
  					 font-family: FontAwesome;
@@ -96,42 +95,87 @@ if($result)
 				}
 				.fancy-checkbox-img:before {
   					position: absolute;
-  					margin: 3px;
+  					margin: 1px;
   					line-height: normal;
 				}
 				input:checked + .fancy-checkbox-img + img {
   					transform: scale(0.9);
   					box-shadow: 0 0 5px #bdbdff;
 				}
+				#mygalary {
+					line-height: 0;
+					-webkit-column-count: 5;
+					-webkit-column-gap : 0px;
+					-moz-column-count: 5;
+					-moz-column-gap: 0px;
+					column-count: 5;
+					column-gap: 0px;
+				}
+				#mygalary IMG {
+					width: 100% !important;
+					height: auto !important;
+					border : double 2px;
+				}
+				@media (max-width: 1200px) {
+  #mygalary {
+  -moz-column-count:    4;
+  -webkit-column-count: 4;
+  column-count:         4;
+  }
+}
+@media (max-width: 1000px) {
+  #mygalary {
+  -moz-column-count:    3;
+  -webkit-column-count: 3;
+  column-count:         3;
+  }
+}
+@media (max-width: 800px) {
+  #mygalary {
+  -moz-column-count:    2;
+  -webkit-column-count: 2;
+  column-count:         2;
+  }
+}
+@media (max-width: 400px) {
+  #mygalary {
+  -moz-column-count:    1;
+  -webkit-column-count: 1;
+  column-count:         1;
+  }
+}
 				
 			</style>
 	
 		</head>
-	<body>
+	<body style=\"padding-top: 70px;\">
 		 <div class=\"navbar navbar-fixed-top\">
                         <div class=\"container\" id=\"sidebar\" >
                                 <div id=\"inside\" ><a class=\"home\" href=\"index.html\"><b><span class=\"glyphicon glyphicon-home\"></span>&nbsp;Home</b></a> </div>
                                 <div id=\"inside\" ><a class=\"home\" href=\"lintelimage.html\"><b><span class=\"glyphicon glyphicon-inbox\"></span>&nbsp;Image</b></a> </div>
                                 <div id=\"inside\" ><a class=\"nonhome\" href=\"#\"><b>&nbsp;&nbsp;&nbsp;Lintel Buliding Solutions</b></a> </div>
                         </div>
-                </div><br><br><br>
+                </div><br><br>
 
 		<form action=\"delete.php\" method=\"POST\">";
 		$rowcount = pg_num_rows($result);		
 		if ($rowcount > 0 ) {
+		echo "<section id=\"mygalary\">";
 	while ($row = pg_fetch_row($result)) {
 		$tempDir = $temp . $row[0];
 		$tempDircpy = $tempDir;
 		$query2 = "select lo_export(image, '$tempDir') from image where name = '${row[0]}'";
 		$result2 = pg_query($query2);
+		
 		if ($result2) {
-			echo "<label class=\"fancy-checkbox-label\">";
-   				echo " <input type=\"checkbox\" name=\"checkbox[]\" value=\"${row[0]}\">";
-    				echo "<span class=\"fancy-checkbox fancy-checkbox-img\"></span>";
-			echo "<IMG SRC=show.php?imgFile=${tempDircpy} id=\"${row[0]}\" title=${row[0]} class=\"img-responsive\" style=\"max-width:50%\">";
-			echo "</label>";
+			echo "<label class=\"checkbox-inline fancy-checkbox-label\">
+   				<input type=\"checkbox\" name=\"checkbox[]\" value=\"${row[0]}\">
+    				<span class=\"fancy-checkbox fancy-checkbox-img\"></span>
+			<IMG SRC=show.php?imgFile=${tempDircpy} id=\"${row[0]}\">
+			</label>";
 		}
 	}
+	echo "</section>";
 	}
 	else {
 		$tempDircpy = $temp . "noimage.png";
