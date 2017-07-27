@@ -56,7 +56,7 @@ if($result)
 				#mygalary IMG {
 					width: 100% !important;
 					height: auto !important;
-					border : double 2px;
+					border : double 1px red;
 				}
 				@media (max-width: 1200px) {
   #mygalary {
@@ -92,7 +92,7 @@ if($result)
 			</script>
 	
 		</head>
-	<body>
+	<body style=\"padding-top:70px\">
 		<div class=\"container mydiv\" id=\"previewdiv\" onclick=\"hidefun();\">
 			<img id=\"imageviewer\" src=\"\" style=\"max-width:100%\" onclick=\"hidefun();\" title=\"By: LintelBuligingSolutions\" class=\"preview\" />
 		</div>
