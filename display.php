@@ -79,13 +79,6 @@ if($result)
   column-count:         2;
   }
 }
-@media (max-width: 400px) {
-  #mygalary {
-  -moz-column-count:    1;
-  -webkit-column-count: 1;
-  column-count:         1;
-  }
-}
 			</style>
 			<script type=\"text/javascript\">
 				function hidefun() {
